@@ -7,12 +7,7 @@ namespace Entidades
 {
     public class VistaSalida : DetalleSalida
     {
-        public Ventas Ventas
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Ventas Ventas { get; set; }
+
     }
 }

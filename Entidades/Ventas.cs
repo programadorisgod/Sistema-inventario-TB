@@ -7,60 +7,23 @@ namespace Entidades
 {
     public class Ventas
     {
-        private int NumeroVenta
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int NumeroVenta { get; set; }
 
-        private DateTime FechaVenta
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public string DocumentoCliente { get; set; }
+        private DateTime FechaVenta { get; set; }
 
-        private int CantidadVendidaProducto
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int CantidadVendidaProducto { get; set; }
 
-        private Double TotalVenta
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public double TotalVenta { get; set; }
 
-        public Producto Producto
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
-        public Cliente Cliente
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Producto Producto { get; set; }
 
-        public List<DetalleSalida> ListaDetalleSalida
-        {
-            get => default;
-            set
-            {
-            }
-        }
+
+        public Cliente Cliente { get; set; }
+
+
+        public List<DetalleSalida> ListaDetalleSalida { get; set; }
+
     }
 }

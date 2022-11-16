@@ -7,76 +7,27 @@ namespace Entidades
 {
     public class Inventario
     {
-        private DateTime FechaDeCompra
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
-        private Double ValorVenta
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Double ValorVenta { get; set; }
 
-        private int EntradaProducto
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
-        private int CantidadProducto
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int EntradaProducto { get; set; }
 
-        private int SalidaProducto
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
-        public Producto Producto
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int CantidadProducto { get; set; }
 
-        public Ventas Ventas
-        {
-            get => default;
-            set
-            {
-            }
-        }
 
-        private String Almacen
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public int SalidaProducto { get; set; }
+      
 
-        private Double TotalIngresos
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public Producto Producto { get; set; }
+
+
+        public Ventas Ventas { get; set; }
+
+
+        public string Almacen { get; set; }
+
+
     }
 }
