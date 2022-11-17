@@ -29,13 +29,13 @@ namespace Gestion_Ciber_Cafe_GUI
         }
         private void PersonalizarDiseño()
         {
-            panelSubMenuEntradas.Visible = false;
+            SubMenuSalidas.Visible = false;
         }
         private void OcultarSubmenu()
         {
-            if (panelSubMenuEntradas.Visible == true)
+            if (SubMenuSalidas.Visible == true)
             {
-                panelSubMenuEntradas.Visible = false;
+                SubMenuSalidas.Visible = false;
             }
         }
         private void MostrarSubmenu(Panel submenu)
@@ -82,27 +82,8 @@ namespace Gestion_Ciber_Cafe_GUI
 
         private void btnEntradas_Click(object sender, EventArgs e)
         {
-            MostrarSubmenu(panelSubMenuEntradas);
-        }
-
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
             Entrada detalle = new Entrada();
             detalle.Show();
-            OcultarSubmenu();
-        }
-
-        private void btnListar_Click(object sender, EventArgs e)
-        {
-            //Codigo...
-            MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
-            OcultarSubmenu();
-        }
-
-        private void btnDetalleEntrada_Click(object sender, EventArgs e)
-        {
-            //Codigo...
-            MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
             OcultarSubmenu();
         }
 
@@ -166,6 +147,25 @@ namespace Gestion_Ciber_Cafe_GUI
         private void linkLabelPrincipal_MouseMove(object sender, MouseEventArgs e)
         {
             linkLabelPrincipal.LinkColor = Color.Cyan;
+        }
+
+        private void btnSalidas_Click(object sender, EventArgs e)
+        {
+            MostrarSubmenu(SubMenuSalidas);
+        }
+
+        private void btnReporteVentas_Click(object sender, EventArgs e)
+        {
+            //Codigo...
+            MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
+            OcultarSubmenu();
+        }
+
+        private void btnDetalleVentas_Click(object sender, EventArgs e)
+        {
+            //Codigo...
+            MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
+            OcultarSubmenu();
         }
     }
 }
