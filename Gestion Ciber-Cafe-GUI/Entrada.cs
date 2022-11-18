@@ -17,41 +17,6 @@ namespace Gestion_Ciber_Cafe_GUI
             InitializeComponent();
         }
 
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void pictureBox6_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox6.BackColor = Color.Transparent;
-        }
-
-        private void pictureBox6_MouseMove(object sender, MouseEventArgs e)
-        {
-            pictureBox6.BackColor = Color.FromArgb(30, 30, 30);
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void pictureBox5_MouseLeave(object sender, EventArgs e)
-        {
-            pictureBox5.BackColor = Color.Transparent;
-        }
-
-        private void pictureBox5_MouseMove(object sender, MouseEventArgs e)
-        {
-            pictureBox5.BackColor = Color.FromArgb(30, 30, 30);
-        }
-
-        private void btnGuardar_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void pictureBox5_Click_1(object sender, EventArgs e)
         {
             this.Close();
