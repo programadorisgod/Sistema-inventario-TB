@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.textBoxBuscar = new System.Windows.Forms.TextBox();
@@ -53,6 +53,9 @@
             this.labelError = new System.Windows.Forms.Label();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.textBoxRazonSocial = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaListaProveedores)).BeginInit();
             this.panel1.SuspendLayout();
@@ -62,6 +65,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panel2
@@ -134,27 +138,27 @@
             this.grillaListaProveedores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grillaListaProveedores.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grillaListaProveedores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grillaListaProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grillaListaProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.grillaListaProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaListaProveedores.Location = new System.Drawing.Point(13, 63);
             this.grillaListaProveedores.MultiSelect = false;
             this.grillaListaProveedores.Name = "grillaListaProveedores";
             this.grillaListaProveedores.ReadOnly = true;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grillaListaProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grillaListaProveedores.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.grillaListaProveedores.RowHeadersVisible = false;
             this.grillaListaProveedores.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grillaListaProveedores.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -168,6 +172,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.panel1.Controls.Add(this.pictureBox3);
+            this.panel1.Controls.Add(this.textBoxRazonSocial);
+            this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.labelError);
             this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.textBoxTelefono);
@@ -259,7 +266,7 @@
             this.panelSubMenu.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.panelSubMenu.Controls.Add(this.btnEliminar);
             this.panelSubMenu.Controls.Add(this.btnGuardar);
-            this.panelSubMenu.Location = new System.Drawing.Point(0, 313);
+            this.panelSubMenu.Location = new System.Drawing.Point(0, 378);
             this.panelSubMenu.Name = "panelSubMenu";
             this.panelSubMenu.Size = new System.Drawing.Size(239, 82);
             this.panelSubMenu.TabIndex = 79;
@@ -328,7 +335,7 @@
             this.labelError.ForeColor = System.Drawing.SystemColors.WindowText;
             this.labelError.Image = global::Gestion_Ciber_Cafe_GUI.Properties.Resources.importante__1_;
             this.labelError.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.labelError.Location = new System.Drawing.Point(72, 297);
+            this.labelError.Location = new System.Drawing.Point(70, 362);
             this.labelError.Name = "labelError";
             this.labelError.Size = new System.Drawing.Size(72, 13);
             this.labelError.TabIndex = 136;
@@ -367,6 +374,35 @@
             this.pictureBox6.MouseLeave += new System.EventHandler(this.pictureBox6_MouseLeave);
             this.pictureBox6.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox6_MouseMove);
             // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Gestion_Ciber_Cafe_GUI.Properties.Resources.linea;
+            this.pictureBox3.Location = new System.Drawing.Point(11, 321);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(214, 4);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 139;
+            this.pictureBox3.TabStop = false;
+            // 
+            // textBoxRazonSocial
+            // 
+            this.textBoxRazonSocial.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxRazonSocial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.textBoxRazonSocial.Location = new System.Drawing.Point(12, 302);
+            this.textBoxRazonSocial.Name = "textBoxRazonSocial";
+            this.textBoxRazonSocial.Size = new System.Drawing.Size(212, 20);
+            this.textBoxRazonSocial.TabIndex = 138;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(14, 280);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(90, 19);
+            this.label2.TabIndex = 137;
+            this.label2.Text = "Razon Social";
+            // 
             // Proveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -393,6 +429,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -422,5 +459,8 @@
         private System.Windows.Forms.Label labelError;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.TextBox textBoxRazonSocial;
+        private System.Windows.Forms.Label label2;
     }
 }

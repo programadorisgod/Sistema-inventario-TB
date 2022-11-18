@@ -7,5 +7,6 @@ namespace Entidades
 {
     public class Proveedor : Persona
     {
+        public string RazonSocial { get; set; }
     }
 }
