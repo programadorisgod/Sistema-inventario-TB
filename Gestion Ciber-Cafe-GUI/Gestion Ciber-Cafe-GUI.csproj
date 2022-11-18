@@ -128,12 +128,6 @@
     <Compile Include="Hitorial Ventas.Designer.cs">
       <DependentUpon>Hitorial Ventas.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inventario.Designer.cs">
-      <DependentUpon>Inventario.cs</DependentUpon>
-    </Compile>
     <Compile Include="ListarClietnes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,9 +180,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Hitorial Ventas.resx">
       <DependentUpon>Hitorial Ventas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Inventario.resx">
-      <DependentUpon>Inventario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ListarClietnes.resx">
       <DependentUpon>ListarClietnes.cs</DependentUpon>

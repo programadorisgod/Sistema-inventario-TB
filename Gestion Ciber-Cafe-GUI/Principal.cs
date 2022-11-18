@@ -120,13 +120,6 @@ namespace Gestion_Ciber_Cafe_GUI
             OcultarSubmenu();
         }
 
-        private void btnInventario_Click(object sender, EventArgs e)
-        {
-            //Codigo...
-            MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
-            OcultarSubmenu();
-        }
-
         private void linkLabelPrincipal_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
             try

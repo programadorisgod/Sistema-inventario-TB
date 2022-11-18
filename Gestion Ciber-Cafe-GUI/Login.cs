@@ -14,7 +14,6 @@ namespace Gestion_Ciber_Cafe_GUI
 {
     public partial class Login : Form
     {
-        Logica.Procesamiento procesamiento = new Logica.Procesamiento();
         public Login()
         {
             InitializeComponent();
@@ -98,32 +97,32 @@ namespace Gestion_Ciber_Cafe_GUI
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
-            if (txtUsuario.Text != "Usuario...")
-            {
-                if (txtContraseña.Text != "Contraseña...")
-                {
-                    bool PassLogin = procesamiento.PassLogin(txtUsuario.Text, txtContraseña.Text);
+            //if (txtUsuario.Text != "Usuario...")
+            //{
+            //    if (txtContraseña.Text != "Contraseña...")
+            //    {
+            //        //bool PassLogin = procesamiento.PassLogin(txtUsuario.Text, txtContraseña.Text);
 
-                    if (PassLogin == true)
-                    {
-                        this.Hide();
-                        Principal principal = new Principal();
-                        principal.Show();
-                    }
-                    else
-                    {
-                        msgError("Usuario o contraseña invalido");
-                    }
-                }
-                else
-                {
-                    msgError("Por favor ingrese su contraseña");
-                }
-            }
-            else
-            {
-                msgError("Por favor ingrese su usuario");
-            }
+            //        if (PassLogin == true)
+            //        {
+            //            this.Hide();
+            //            Principal principal = new Principal();
+            //            principal.Show();
+            //        }
+            //        else
+            //        {
+            //            msgError("Usuario o contraseña invalido");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        msgError("Por favor ingrese su contraseña");
+            //    }
+            //}
+            //else
+            //{
+            //    msgError("Por favor ingrese su usuario");
+            //}
             
         }
         private void msgError(string msg)

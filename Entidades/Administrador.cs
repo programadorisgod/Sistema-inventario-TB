@@ -7,20 +7,8 @@ namespace Entidades
 {
     public class Administrador : Persona
     {
-        private String Usuario
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public String Usuario { get; set; }
 
-        private String Clave
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        public String Clave { get; set; }
     }
 }

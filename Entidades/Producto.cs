@@ -15,9 +15,11 @@ namespace Entidades
 
         public double ValorVenta { get; set; }
 
+        public int Stock { get; set; }
+
         public override string ToString()
         {
-            return string.Format(Codigo + ";" + Nombre + ";" + Descripcion + ";" + ValorVenta);
+            return string.Format(Codigo + ";" + Nombre + ";" + Descripcion + ";" + ValorVenta + ";" + Stock);
         }
     }
 }

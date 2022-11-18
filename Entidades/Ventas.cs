@@ -7,23 +7,16 @@ namespace Entidades
 {
     public class Ventas
     {
-        public int NumeroVenta { get; set; }
+        public int  IdVenta { get; set; }
 
-        public string DocumentoCliente { get; set; }
-        private DateTime FechaVenta { get; set; }
+        public string CedulaCliente { get; set; }
 
-        public int CantidadVendidaProducto { get; set; }
+        public int CantidadProductos { get; set; }
 
         public double TotalVenta { get; set; }
 
-
-        public Producto Producto { get; set; }
-
-
-        public Cliente Cliente { get; set; }
-
+        private DateTime FechaVenta { get; set; }
 
         public List<DetalleSalida> ListaDetalleSalida { get; set; }
-
     }
 }
