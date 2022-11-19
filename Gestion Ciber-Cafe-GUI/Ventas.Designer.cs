@@ -28,9 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnRegresar = new System.Windows.Forms.Button();
             this.btnventa = new System.Windows.Forms.Button();
             this.lbltotalF = new System.Windows.Forms.Label();
             this.lbltotal = new System.Windows.Forms.Label();
@@ -52,11 +53,10 @@
             this.DocClien = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.btnRegresar = new System.Windows.Forms.Button();
+            this.Fecha = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaListaProductos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -67,6 +67,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.White;
+            this.groupBox1.Controls.Add(this.Fecha);
             this.groupBox1.Controls.Add(this.btnRegresar);
             this.groupBox1.Controls.Add(this.btnventa);
             this.groupBox1.Controls.Add(this.lbltotalF);
@@ -89,7 +90,6 @@
             this.groupBox1.Controls.Add(this.DocClien);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
             this.groupBox1.Controls.Add(this.label27);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.textBox1);
@@ -98,6 +98,23 @@
             this.groupBox1.Size = new System.Drawing.Size(865, 598);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // btnRegresar
+            // 
+            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRegresar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRegresar.Image = global::Gestion_Ciber_Cafe_GUI.Properties.Resources.arrow_left_12777;
+            this.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegresar.Location = new System.Drawing.Point(720, 16);
+            this.btnRegresar.Name = "btnRegresar";
+            this.btnRegresar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 1);
+            this.btnRegresar.Size = new System.Drawing.Size(127, 33);
+            this.btnRegresar.TabIndex = 149;
+            this.btnRegresar.Text = "       Regresar";
+            this.btnRegresar.UseVisualStyleBackColor = false;
             // 
             // btnventa
             // 
@@ -147,27 +164,27 @@
             this.grillaListaProductos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.grillaListaProductos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.grillaListaProductos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grillaListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grillaListaProductos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.grillaListaProductos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.grillaListaProductos.Location = new System.Drawing.Point(13, 281);
             this.grillaListaProductos.MultiSelect = false;
             this.grillaListaProductos.Name = "grillaListaProductos";
             this.grillaListaProductos.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.grillaListaProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.grillaListaProductos.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.grillaListaProductos.RowHeadersVisible = false;
             this.grillaListaProductos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grillaListaProductos.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
@@ -324,13 +341,6 @@
             this.label4.TabIndex = 121;
             this.label4.Text = "Documento Cliente:";
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(93, 74);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 118;
-            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -361,22 +371,12 @@
             this.textBox1.Size = new System.Drawing.Size(859, 60);
             this.textBox1.TabIndex = 1;
             // 
-            // btnRegresar
+            // Fecha
             // 
-            this.btnRegresar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRegresar.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnRegresar.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnRegresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRegresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRegresar.Image = global::Gestion_Ciber_Cafe_GUI.Properties.Resources.arrow_left_12777;
-            this.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnRegresar.Location = new System.Drawing.Point(720, 16);
-            this.btnRegresar.Name = "btnRegresar";
-            this.btnRegresar.Padding = new System.Windows.Forms.Padding(10, 0, 0, 1);
-            this.btnRegresar.Size = new System.Drawing.Size(127, 33);
-            this.btnRegresar.TabIndex = 149;
-            this.btnRegresar.Text = "       Regresar";
-            this.btnRegresar.UseVisualStyleBackColor = false;
+            this.Fecha.Location = new System.Drawing.Point(93, 71);
+            this.Fecha.Name = "Fecha";
+            this.Fecha.Size = new System.Drawing.Size(89, 20);
+            this.Fecha.TabIndex = 150;
             // 
             // Ventas
             // 
@@ -386,6 +386,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "Ventas";
             this.Text = "Ventas";
+            this.Load += new System.EventHandler(this.Ventas_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grillaListaProductos)).EndInit();
@@ -401,7 +402,6 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.TextBox txtnombreclie;
         private System.Windows.Forms.TextBox DocClien;
@@ -425,5 +425,6 @@
         private System.Windows.Forms.Label lbltotal;
         private System.Windows.Forms.Button btnventa;
         private System.Windows.Forms.Button btnRegresar;
+        private System.Windows.Forms.TextBox Fecha;
     }
 }

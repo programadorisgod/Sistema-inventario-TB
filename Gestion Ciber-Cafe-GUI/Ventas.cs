@@ -16,5 +16,10 @@ namespace Gestion_Ciber_Cafe_GUI
         {
             InitializeComponent();
         }
+
+        private void Ventas_Load(object sender, EventArgs e)
+        {
+            Fecha.Text = DateTime.Now.ToString("dd/MM/yyyy");
+        }
     }
 }

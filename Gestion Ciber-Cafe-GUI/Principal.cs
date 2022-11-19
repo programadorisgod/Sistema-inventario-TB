@@ -150,7 +150,9 @@ namespace Gestion_Ciber_Cafe_GUI
         private void btnReporteVentas_Click(object sender, EventArgs e)
         {
             //Codigo...
-            MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
+            Ventas ventas = new Ventas();
+            ventas.Show();
+            //MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
             OcultarSubmenu();
         }
 
