@@ -14,6 +14,7 @@ namespace Gestion_Ciber_Cafe_GUI
 {
     public partial class Login : Form
     {
+        Logica.ServiciosAdministrador administrador = new Logica.ServiciosAdministrador();
         public Login()
         {
             InitializeComponent();
@@ -24,7 +25,7 @@ namespace Gestion_Ciber_Cafe_GUI
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         private void btnEntrar_Click(object sender, EventArgs e)
         {
-           
+
 
         }
         void Pordefecto()
@@ -45,7 +46,7 @@ namespace Gestion_Ciber_Cafe_GUI
         }
         private void Login_Load(object sender, EventArgs e)
         {
-           
+
         }
 
         private void txtUsuario_Enter(object sender, EventArgs e)
@@ -97,33 +98,33 @@ namespace Gestion_Ciber_Cafe_GUI
 
         private void btnEntrar_Click_1(object sender, EventArgs e)
         {
-            //if (txtUsuario.Text != "Usuario...")
-            //{
-            //    if (txtContraseña.Text != "Contraseña...")
-            //    {
-            //        //bool PassLogin = procesamiento.PassLogin(txtUsuario.Text, txtContraseña.Text);
+            if (txtUsuario.Text != "Usuario...")
+            {
+                if (txtContraseña.Text != "Contraseña...")
+                {
+                    int PassLogin = administrador.ConSQL(txtUsuario.Text, txtContraseña.Text);
 
-            //        if (PassLogin == true)
-            //        {
-            //            this.Hide();
-            //            Principal principal = new Principal();
-            //            principal.Show();
-            //        }
-            //        else
-            //        {
-            //            msgError("Usuario o contraseña invalido");
-            //        }
-            //    }
-            //    else
-            //    {
-            //        msgError("Por favor ingrese su contraseña");
-            //    }
-            //}
-            //else
-            //{
-            //    msgError("Por favor ingrese su usuario");
-            //}
-            
+                    if (PassLogin == 1)
+                    {
+                        this.Hide();
+                        Principal principal = new Principal();
+                        principal.Show();
+                    }
+                    else
+                    {
+                        msgError("Usuario o contraseña invalido");
+                    }
+                }
+                else
+                {
+                    msgError("Por favor ingrese su contraseña");
+                }
+            }
+            else
+            {
+                msgError("Por favor ingrese su usuario");
+            }
+
         }
         private void msgError(string msg)
         {

@@ -252,6 +252,10 @@
     <None Include="Resources\equis salir.png" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Datos\Datos.csproj">
+      <Project>{1cacf005-557d-46e9-aae2-cd2d5e7f75ee}</Project>
+      <Name>Datos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{95a62fb5-f98d-43b2-8af1-f7fc2f362418}</Project>
       <Name>Entidades</Name>

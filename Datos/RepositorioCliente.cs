@@ -1,69 +1,43 @@
-﻿using Entidades;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.SqlClient;
+using Entidades;
+using NPOI.SS.Formula.Functions;
 
 namespace Datos
 {
-    public class RepositorioCliente : Archivo
+    public class RepositorioCliente : ConexionBasedeDatos
     {
-        public RepositorioCliente() : base()
-        {
-            ruta = "Clientes.txt";
-        }
-        public List<Cliente> GetAll()
-        {
-            bool seguir = true;
 
-            List<Entidades.Cliente> ListaClientes = new List<Entidades.Cliente>();
-            do
+        SqlCommand cmd;
+
+        public string InsertarCliente(Cliente cliente)
+        {
+            int count = 0;
+            Conexion.Open();
+            cmd = new SqlCommand("RegistrarCliente", Conexion);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula.ToString());
+            cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre.ToString());
+            cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono.ToString());
+            cmd.Parameters.AddWithValue("@Correo", cliente.Correo.ToString());
+            cmd.Parameters.AddWithValue("@Direccion", cliente.Direccion.ToString());
+            try
             {
-                try
-                {
-                    StreamReader sr = new StreamReader(ruta);
-
-                    while (!sr.EndOfStream)
-                    {
-                        ListaClientes.Add(Mapear(sr.ReadLine()));
-
-                    }
-                    sr.Close();
-                    seguir = true;
-                }
-                catch (Exception)
-                {
-                    CrearArchivo();
-                    seguir = false;
-                }
-
-            } while (seguir == false);
-            return ListaClientes;
-        }
-        Entidades.Cliente Mapear(string lineadatos)
-        {
-            Cliente cliente = new Cliente();
-            cliente.Cedula = int.Parse(lineadatos.Split(';')[0]);
-            cliente.Nombre = lineadatos.Split(';')[1];
-            cliente.Telefono = lineadatos.Split(';')[2];
-            cliente.Direccion = lineadatos.Split(';')[3];
-            cliente.Correo = lineadatos.Split(';')[4];
-            return cliente;
-
-        }
-
-        public string Actualizar(List<Cliente> clientes, bool modo)
-        {
-            StreamWriter escritor = new StreamWriter(ruta, modo);
-            foreach (var item in clientes)
-            {
-                escritor.WriteLine(item.ToString());
+                var result = cmd.ExecuteNonQuery();
+                return result == 1 ? "se agregro el Cliente" : "error al agregar ";
             }
-            escritor.Close();
-            return "Proceso Terminado";
+            catch (Exception)
+            {
+                return "error al agregar ";
+                throw;
+            }
+            Conexion.Close();
         }
 
     }
+
 }

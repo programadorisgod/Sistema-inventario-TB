@@ -54,6 +54,7 @@ namespace Gestion_Ciber_Cafe_GUI
                     cliente.Telefono = txtTelefono.Text;
                     cliente.Direccion = txtDireccion.Text;
                     cliente.Correo = txtCorreo.Text;
+
                     var Respuesta = MessageBox.Show("Desea guardar el cliente?", "Responde...", MessageBoxButtons.YesNoCancel);
                     if (Respuesta == DialogResult.Yes)
                     {
@@ -96,7 +97,7 @@ namespace Gestion_Ciber_Cafe_GUI
             p = e.RowIndex;
             if (p != -1)
             {
-                VerClientes(servicioCliente.GetAll()[p]);
+         //       VerClientes(servicioCliente.GetAll()[p]);
             }
             tabControl1.SelectedIndex = 0;
         }
@@ -110,7 +111,7 @@ namespace Gestion_Ciber_Cafe_GUI
         }
         void Refres()
         {
-            dataGridView1.DataSource = servicioCliente.GetAll();
+    //        dataGridView1.DataSource = servicioCliente.GetAll();
         }
         void Editar()
         {
@@ -119,8 +120,8 @@ namespace Gestion_Ciber_Cafe_GUI
             cliente.Telefono = txtTelefono.Text;
             cliente.Direccion = txtDireccion.Text;
             cliente.Correo = txtCorreo.Text;
-            var mensaje = servicioCliente.Edit(cliente, p);
-            MessageBox.Show(mensaje);
+       //     var mensaje = servicioCliente.Edit(cliente, p);
+          //  MessageBox.Show(mensaje);
             Limpiar();
             txtcedula.Focus();
             Refres();
@@ -341,8 +342,8 @@ namespace Gestion_Ciber_Cafe_GUI
                 var Respuesta = MessageBox.Show("Desea borrar el cliente seleccionado?", "Responde...", MessageBoxButtons.YesNo);
                 if (Respuesta == DialogResult.Yes)
                 {
-                    var mensaje = servicioCliente.Delete(p);
-                    MessageBox.Show(mensaje);
+               //     var mensaje = servicioCliente.Delete(p);
+                  //  MessageBox.Show(mensaje);
                     Refres();
                 }
                 Limpiar();

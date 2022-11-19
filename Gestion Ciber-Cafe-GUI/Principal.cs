@@ -157,8 +157,11 @@ namespace Gestion_Ciber_Cafe_GUI
         private void btnDetalleVentas_Click(object sender, EventArgs e)
         {
             //Codigo...
-            MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
+            
             OcultarSubmenu();
+
+            //MessageBox.Show("Esta usando la version beta de este proyecto \n\nClick en 'Quienes somos?' para mas informacion");
+            //OcultarSubmenu();
         }
     }
 }

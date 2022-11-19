@@ -29,7 +29,7 @@ namespace Gestion_Ciber_Cafe_GUI
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         void RefreshLista()
         {
-            grillaListaProductos.DataSource = servicioProducto.GetAll();
+            //grillaListaProductos.DataSource = servicioProducto.GetAll();
         }
         void Limpiar()
         {
@@ -62,8 +62,8 @@ namespace Gestion_Ciber_Cafe_GUI
                     var Respuesta = MessageBox.Show("Desea guardar el producto?", "Responde...", MessageBoxButtons.YesNo);
                     if (Respuesta == DialogResult.Yes)
                     {
-                        var mensaje = servicioProducto.Guardar(producto);
-                        MessageBox.Show(mensaje);
+                        //var mensaje = servicioProducto.Guardar(producto);
+                        //MessageBox.Show(mensaje);
                         Limpiar();
                         RefreshLista();
                     }
@@ -77,8 +77,8 @@ namespace Gestion_Ciber_Cafe_GUI
                         producto.Nombre = textBoxNombre.Text;
                         producto.Descripcion = textBoxDescripcion.Text;
                         producto.ValorVenta = double.Parse(textBoxValorVenta.Text);
-                        var mensaje = servicioProducto.Edit(producto, row);
-                        MessageBox.Show(mensaje);
+                        //var mensaje = servicioProducto.Edit(producto, row);
+                        //MessageBox.Show(mensaje);
                         textBoxCodigo.Focus();
                         RefreshLista();
                     }
@@ -96,8 +96,8 @@ namespace Gestion_Ciber_Cafe_GUI
                 var Respuesta = MessageBox.Show("Desea borrar el producto?", "Responde...", MessageBoxButtons.YesNo);
                 if (Respuesta == DialogResult.Yes)
                 {
-                    var mensaje = servicioProducto.Delete(row);
-                    MessageBox.Show(mensaje);
+            //        var mensaje = servicioProducto.Delete(row);
+          //          MessageBox.Show(mensaje);
                     RefreshLista();
                 }
                 Limpiar();
@@ -249,7 +249,7 @@ namespace Gestion_Ciber_Cafe_GUI
         private void grillaListaProductos_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             row = e.RowIndex;
-            Llenar(servicioProducto.GetAll()[row]);
+        //    Llenar(servicioProducto.GetAll()[row]);
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -260,7 +260,7 @@ namespace Gestion_Ciber_Cafe_GUI
         private void grillaListaProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             row = e.RowIndex;
-            Llenar(servicioProducto.GetAll()[row]);
+      //      Llenar(servicioProducto.GetAll()[row]);
         }
 
         private void btnGenerarCodigoBarras_Click(object sender, EventArgs e)
