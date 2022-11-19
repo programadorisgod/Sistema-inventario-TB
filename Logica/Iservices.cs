@@ -9,8 +9,9 @@ namespace Logica
     {
         string Guardar(T Cliente);
         string Delete(T Cliente);
-        string Edit(T Cliente);
+        string Edit(T Cliente, T cedula);
         List<T> GetAll();
+        T GetById(T cliente, int id);
        
     }
 }

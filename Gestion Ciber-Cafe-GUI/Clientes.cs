@@ -17,11 +17,14 @@ using System.IO;
 
 namespace Gestion_Ciber_Cafe_GUI
 {
+    
     public partial class Clientes : Form
 
     {
+        int contador = 0;
         int p = -1;
         Entidades.Cliente cliente = new Entidades.Cliente();
+        Logica.ServiciosAdministrador administrador = new Logica.ServiciosAdministrador();
         Logica.ServicioCliente servicioCliente = new Logica.ServicioCliente();
         public Clientes()
         {
@@ -78,7 +81,7 @@ namespace Gestion_Ciber_Cafe_GUI
             }
 
         }
-        
+
 
         private void Clientes_Load(object sender, EventArgs e)
         {
@@ -91,7 +94,7 @@ namespace Gestion_Ciber_Cafe_GUI
             p = e.RowIndex;
             if (p != -1)
             {
-               VerClientes(servicioCliente.GetAll()[p]);
+                VerClientes(servicioCliente.GetAll()[p]);
             }
             tabControl1.SelectedIndex = 0;
         }
@@ -105,20 +108,33 @@ namespace Gestion_Ciber_Cafe_GUI
         }
         void Refres()
         {
-           dataGridView1.DataSource = servicioCliente.GetAll();
+            dataGridView1.DataSource = servicioCliente.GetAll();
         }
+        
         void Editar()
         {
-            cliente.Cedula = txtcedula.Text;
-            cliente.Nombre = txtnombre.Text;
-            cliente.Telefono = txtTelefono.Text;
-            cliente.Direccion = txtDireccion.Text;
-            cliente.Correo = txtCorreo.Text;
-            var mensaje = servicioCliente.Edit(cliente);
-            MessageBox.Show(mensaje);
-            Limpiar();
-            txtcedula.Focus();
-            Refres();
+            Entidades.Cliente clienteold = new Entidades.Cliente();
+            if (p != -1)
+            {
+                for (int i = 0; i < servicioCliente.GetAll().Count; i++)
+                {
+                    if (i == p)
+                    {
+                        clienteold = servicioCliente.GetAll()[i];
+                    }
+                }
+                var cedula = servicioCliente.GetById(clienteold, p);
+                cliente.Cedula = txtcedula.Text;
+                cliente.Nombre = txtnombre.Text;
+                cliente.Telefono = txtTelefono.Text;
+                cliente.Direccion = txtDireccion.Text;
+                cliente.Correo = txtCorreo.Text;
+                var mensaje = servicioCliente.Edit(cliente, cedula);
+                MessageBox.Show(mensaje);
+                Limpiar();
+                txtcedula.Focus();
+                Refres();
+            }
         }
 
         private void txtcedula_KeyPress(object sender, KeyPressEventArgs e)
@@ -242,11 +258,12 @@ namespace Gestion_Ciber_Cafe_GUI
             SaveFileDialog saveFile = new SaveFileDialog();
             saveFile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
 
-
+            Administrador admin = administrador.Obtener();
+             
             string pagimahtml_texto = Properties.Resources.pag.ToString();
             pagimahtml_texto = pagimahtml_texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
 
-
+            contador = contador + 1;
             string filas = string.Empty;
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -258,8 +275,11 @@ namespace Gestion_Ciber_Cafe_GUI
                 filas += "<td>" + row.Cells["Correo"].Value.ToString() + "</td>";
                 filas += "</tr>";
             }
-            pagimahtml_texto = pagimahtml_texto.Replace("@FILAS", filas);
 
+            pagimahtml_texto = pagimahtml_texto.Replace("@FILAS", filas);
+            pagimahtml_texto = pagimahtml_texto.Replace("@numero", contador.ToString() );
+            pagimahtml_texto = pagimahtml_texto.Replace("@Administrador", admin.Nombre );
+            pagimahtml_texto = pagimahtml_texto.Replace("@DOCUMENTO", admin.Cedula);
 
             if (saveFile.ShowDialog() == DialogResult.OK)
             {
@@ -333,20 +353,23 @@ namespace Gestion_Ciber_Cafe_GUI
             }
             else
             {
+
                 Editar();
             }
-           
+
         }
+
         void Eliminar()
         {
+
             cliente.Cedula = txtcedula.Text;
             if (p != -1)
             {
                 var Respuesta = MessageBox.Show("Desea borrar el cliente seleccionado?", "Responde...", MessageBoxButtons.YesNo);
                 if (Respuesta == DialogResult.Yes)
                 {
-                      var mensaje = servicioCliente.Delete(cliente);
-                      MessageBox.Show(mensaje);
+                    var mensaje = servicioCliente.Delete(cliente);
+                    MessageBox.Show(mensaje);
                     Refres();
                 }
                 Limpiar();

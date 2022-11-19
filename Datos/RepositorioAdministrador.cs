@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
+using Entidades;
 
 namespace Datos
 {
@@ -30,6 +31,35 @@ namespace Datos
             Conexion.Close();
             return count;
            
+        }
+
+        public Administrador Capturar()
+        {
+            Administrador obj = new Administrador();
+
+            try
+            {
+
+                Conexion.Open();
+                string Query = "Select Cedula, Nombre from Administrador ";
+                cmd = new SqlCommand(Query, Conexion);
+                cmd.CommandType = System.Data.CommandType.Text;
+                var reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    obj = new Administrador()
+                    {
+                        Cedula = reader["Cedula"].ToString(),
+                        Nombre = reader["Nombre"].ToString()
+                    };
+                }
+            }
+            catch (Exception)
+            {
+
+                obj = new Administrador();
+            }
+            return obj;
         }
 
     }

@@ -26,9 +26,9 @@ namespace Logica
             return "Cliente no encontrado";
         }
 
-        public string Edit(Cliente Cliente)
+        public string Edit(Cliente Cliente, Cliente Clienteold)
         {
-            var encontro = repositorioCliente.BuscarPorId(Cliente.Cedula);
+            var encontro = repositorioCliente.BuscarPorId(Clienteold.Cedula);
             if (encontro != 0)
             {
                 return repositorioCliente.EditarCliente(Cliente);
@@ -41,10 +41,25 @@ namespace Logica
             return clientes;
         }
 
+        public Cliente GetById(Cliente cliente, int row)
+        {
+            clientes = GetAll();
 
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                if (clientes[i].Cedula == cliente.Cedula)
+                {
+                    return clientes[i];
+                }
+            }
+
+            return null;
+        }
         public string Guardar(Cliente Cliente)
         {
             return repositorioCliente.InsertarCliente(Cliente);
         }
+
+        
     }
 }
