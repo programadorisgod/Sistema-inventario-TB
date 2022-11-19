@@ -17,7 +17,7 @@ using System.IO;
 
 namespace Gestion_Ciber_Cafe_GUI
 {
-    
+
     public partial class Clientes : Form
 
     {
@@ -57,12 +57,33 @@ namespace Gestion_Ciber_Cafe_GUI
                     cliente.Telefono = txtTelefono.Text;
                     cliente.Direccion = txtDireccion.Text;
                     cliente.Correo = txtCorreo.Text;
-
+                    string guardar = "";
+                    bool encontro= false;
                     var Respuesta = MessageBox.Show("Desea guardar el cliente?", "Responde...", MessageBoxButtons.YesNoCancel);
                     if (Respuesta == DialogResult.Yes)
                     {
-                        var mensaje = servicioCliente.Guardar(cliente);
-                        MessageBox.Show(mensaje);
+                        Entidades.Cliente clienteold = new Entidades.Cliente();
+                        for (int i = 0; i < servicioCliente.GetAll().Count; i++)
+                        {
+                            clienteold = servicioCliente.GetAll()[i];
+                            if (clienteold.Cedula == cliente.Cedula)
+                            {
+                                encontro= true;
+                            }
+
+                        }
+                        if (!encontro)
+                        {
+                            var mensaje = servicioCliente.Guardar(cliente);
+                            Limpiar();
+                            MessageBox.Show(mensaje);
+                        }
+                        else
+                        {
+                            guardar = "No se pudo registrar correctamente el cliente, ya se encuentra registrado un cliente con ese mismo Nº de documento";
+                            MessageBox.Show(guardar);
+                        }
+                    
                         Refres();
                     }
                 }
@@ -72,8 +93,9 @@ namespace Gestion_Ciber_Cafe_GUI
                     if (Respuesta == DialogResult.Yes)
                     {
                         Editar();
+
                     }
-                    Limpiar();
+
                     p = -1;
                 }
 
@@ -110,7 +132,10 @@ namespace Gestion_Ciber_Cafe_GUI
         {
             dataGridView1.DataSource = servicioCliente.GetAll();
         }
-        
+        void cargarold()
+        {
+
+        }
         void Editar()
         {
             Entidades.Cliente clienteold = new Entidades.Cliente();
@@ -259,7 +284,7 @@ namespace Gestion_Ciber_Cafe_GUI
             saveFile.FileName = string.Format("{0}.pdf", DateTime.Now.ToString("ddMMyyyyHHmmss"));
 
             Administrador admin = administrador.Obtener();
-             
+
             string pagimahtml_texto = Properties.Resources.pag.ToString();
             pagimahtml_texto = pagimahtml_texto.Replace("@FECHA", DateTime.Now.ToString("dd/MM/yyyy"));
 
@@ -277,8 +302,8 @@ namespace Gestion_Ciber_Cafe_GUI
             }
 
             pagimahtml_texto = pagimahtml_texto.Replace("@FILAS", filas);
-            pagimahtml_texto = pagimahtml_texto.Replace("@numero", contador.ToString() );
-            pagimahtml_texto = pagimahtml_texto.Replace("@Administrador", admin.Nombre );
+            pagimahtml_texto = pagimahtml_texto.Replace("@numero", contador.ToString());
+            pagimahtml_texto = pagimahtml_texto.Replace("@Administrador", admin.Nombre);
             pagimahtml_texto = pagimahtml_texto.Replace("@DOCUMENTO", admin.Cedula);
 
             if (saveFile.ShowDialog() == DialogResult.OK)
@@ -341,7 +366,6 @@ namespace Gestion_Ciber_Cafe_GUI
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             Guardar();
-            Limpiar();
             Refres();
         }
 
@@ -355,6 +379,7 @@ namespace Gestion_Ciber_Cafe_GUI
             {
 
                 Editar();
+                Refres();
             }
 
         }

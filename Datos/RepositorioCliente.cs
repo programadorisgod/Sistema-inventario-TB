@@ -13,7 +13,6 @@ namespace Datos
     {
 
         SqlCommand cmd;
-
         public string InsertarCliente(Cliente cliente)
         {
             Conexion.Open();
@@ -38,6 +37,7 @@ namespace Datos
 
         }
 
+
         public List<Cliente> GetClienteList()
         {
             List<Cliente> clientes = new List<Cliente>();
@@ -47,7 +47,7 @@ namespace Datos
             var reader = cmd.ExecuteReader();
             while ((reader.Read()))
             {
-                clientes.Add(new Cliente(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5)));
+                clientes.Add(new Cliente(reader.GetInt32(0),reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5)));
             }
             Cerrar();
             return clientes;
@@ -59,6 +59,7 @@ namespace Datos
             Conexion.Open();
             cmd = new SqlCommand("EditarCliente", Conexion);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@id_cliente ",cliente.id_cliente);
             cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula);
             cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
             cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
@@ -122,35 +123,7 @@ namespace Datos
             }
             Conexion.Close();
         }
-        public Administrador Capturar()
-        {
-            Administrador obj = new Administrador();
-
-            try
-            {
-
-                Conexion.Open();
-                string Query = "Select Cedula, Nombre from Administrador ";
-                cmd = new SqlCommand(Query, Conexion);
-                cmd.CommandType = System.Data.CommandType.Text;
-                var reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    obj = new Administrador()
-                    {
-                        Cedula = reader["Cedula"].ToString(),
-                        Nombre = reader["Nombre"].ToString()
-                    };
-                }
-            }
-            catch (Exception)
-            {
-
-                obj = new Administrador();
-            }
-            return obj;
-        }
-
+        
     }
 
 }

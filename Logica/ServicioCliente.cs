@@ -19,9 +19,9 @@ namespace Logica
         public string Delete(Cliente Cliente)
         {
             var encontro = repositorioCliente.BuscarPorId(Cliente.Cedula);
-            if (encontro !=0)
+            if (encontro != 0)
             {
-               return repositorioCliente.Elimnar(Cliente.Cedula);
+                return repositorioCliente.Elimnar(Cliente.Cedula);
             }
             return "Cliente no encontrado";
         }
@@ -31,6 +31,7 @@ namespace Logica
             var encontro = repositorioCliente.BuscarPorId(Clienteold.Cedula);
             if (encontro != 0)
             {
+                Cliente.id_cliente = encontro;
                 return repositorioCliente.EditarCliente(Cliente);
             }
             return "Cliente no encontrado";
@@ -57,9 +58,12 @@ namespace Logica
         }
         public string Guardar(Cliente Cliente)
         {
+
             return repositorioCliente.InsertarCliente(Cliente);
+
+
         }
 
-        
+
     }
 }
