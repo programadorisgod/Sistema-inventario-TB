@@ -26,15 +26,14 @@ namespace Datos
             try
             {
                 var result = cmd.ExecuteNonQuery();
+                Conexion.Close();
                 return result == 1 ? "se agregó el Cliente" : "error al agregar";
             }
             catch (Exception)
             {
+                Conexion.Close();
                 return "error al agregar ";
             }
-
-            Conexion.Close();
-
         }
 
 
@@ -68,15 +67,15 @@ namespace Datos
             try
             {
                 var result = cmd.ExecuteNonQuery();
+                Conexion.Close();
                 return result == 1 ? "se edtió el Cliente" : " error al editar ";
-
             }
             catch (Exception)
             {
+                Conexion.Close();
                 return "error al editar";
-
             }
-            Conexion.Close();
+            
 
         }
 
@@ -92,12 +91,11 @@ namespace Datos
             {
                 cmd.ExecuteNonQuery();
                 count = Convert.ToInt32(cmd.ExecuteScalar());
-
             }
             catch (Exception)
             {
+                Conexion.Close();
                 return count;
-
             }
             Conexion.Close();
             return count;
@@ -113,15 +111,14 @@ namespace Datos
             try
             {
                 var result = cmd.ExecuteNonQuery();
+                Conexion.Close();
                 return result == 1 ? "se eliminó el Cliente" : "error al eliminar el cliente ";
-
             }
             catch (Exception)
             {
+                Conexion.Close();
                 return "error al editar";
-
             }
-            Conexion.Close();
         }
         
     }
