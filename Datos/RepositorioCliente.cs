@@ -16,28 +16,112 @@ namespace Datos
 
         public string InsertarCliente(Cliente cliente)
         {
-            int count = 0;
             Conexion.Open();
             cmd = new SqlCommand("RegistrarCliente", Conexion);
             cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula.ToString());
-            cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre.ToString());
-            cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono.ToString());
-            cmd.Parameters.AddWithValue("@Correo", cliente.Correo.ToString());
-            cmd.Parameters.AddWithValue("@Direccion", cliente.Direccion.ToString());
+            cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula);
+            cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+            cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+            cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
+            cmd.Parameters.AddWithValue("@Direccion", cliente.Direccion);
             try
             {
                 var result = cmd.ExecuteNonQuery();
-                return result == 1 ? "se agregro el Cliente" : "error al agregar ";
+                return result == 1 ? "se agregó el Cliente" : "error al agregar";
             }
             catch (Exception)
             {
                 return "error al agregar ";
-                throw;
+            }
+
+            Conexion.Close();
+
+        }
+
+        public List<Cliente> GetClienteList()
+        {
+            List<Cliente> clientes = new List<Cliente>();
+            string ssql = String.Format("select * from Clientes");
+            cmd = new SqlCommand(ssql, Conexion);
+            Conexion.Open();
+            var reader = cmd.ExecuteReader();
+            while ((reader.Read()))
+            {
+                clientes.Add(new Cliente(reader.GetString(1), reader.GetString(2), reader.GetString(3), reader.GetString(4), reader.GetString(5)));
+            }
+            Cerrar();
+            return clientes;
+        }
+
+
+        public string EditarCliente(Cliente cliente)
+        {
+            Conexion.Open();
+            cmd = new SqlCommand("EditarCliente", Conexion);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Cedula", cliente.Cedula);
+            cmd.Parameters.AddWithValue("@Nombre", cliente.Nombre);
+            cmd.Parameters.AddWithValue("@Telefono", cliente.Telefono);
+            cmd.Parameters.AddWithValue("@Correo", cliente.Correo);
+            cmd.Parameters.AddWithValue("@Direccion", cliente.Direccion);
+            try
+            {
+                var result = cmd.ExecuteNonQuery();
+                return result == 1 ? "se edtió el Cliente" : "error al editar ";
+
+            }
+            catch (Exception)
+            {
+                return "error al editar";
+
+            }
+            Conexion.Close();
+
+        }
+
+        public int BuscarPorId(string Cedula)
+        {
+            int count = 0;
+
+            Conexion.Open();
+            cmd = new SqlCommand("BuscarID", Conexion);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Cedula", Cedula);
+            try
+            {
+                cmd.ExecuteNonQuery();
+                count = Convert.ToInt32(cmd.ExecuteScalar());
+
+            }
+            catch (Exception)
+            {
+                return count;
+
+            }
+            Conexion.Close();
+            return count;
+        }
+
+        public string Elimnar(string Cedula)
+        {
+
+            Conexion.Open();
+            cmd = new SqlCommand("Eliminar", Conexion);
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("@Cedula", Cedula);
+            try
+            {
+                var result = cmd.ExecuteNonQuery();
+                return result == 1 ? "se eliminó el Cliente" : "error al eliminar el cliente ";
+
+            }
+            catch (Exception)
+            {
+                return "error al editar";
+
             }
             Conexion.Close();
         }
-
     }
 
 }

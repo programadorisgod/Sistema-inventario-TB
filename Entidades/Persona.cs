@@ -7,13 +7,13 @@ namespace Entidades
 {
     public class Persona
     {
-        public int Cedula { get; set; }
+        public string Cedula { get; set; }
 
         public string Nombre { get; set; }
 
         public  string Telefono { get; set; }
 
-        public Persona(int Cedula, string Nombre, string Telefono)
+        public Persona(string Cedula, string Nombre, string Telefono)
         {
             this.Cedula = Cedula;
             this.Nombre = Nombre;

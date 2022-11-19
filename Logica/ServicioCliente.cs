@@ -11,25 +11,36 @@ namespace Logica
     public class ServicioCliente : Iservices<Cliente>
     {
         Datos.RepositorioCliente repositorioCliente = new Datos.RepositorioCliente();
-        public string Delete(int Indice)
+        List<Cliente> clientes;
+        public ServicioCliente()
         {
-            throw new NotImplementedException();
+            clientes = repositorioCliente.GetClienteList();
+        }
+        public string Delete(Cliente Cliente)
+        {
+            var encontro = repositorioCliente.BuscarPorId(Cliente.Cedula);
+            if (encontro !=0)
+            {
+               return repositorioCliente.Elimnar(Cliente.Cedula);
+            }
+            return "Cliente no encontrado";
         }
 
-        public string Edit(Cliente Cliente, int p)
+        public string Edit(Cliente Cliente)
         {
-            throw new NotImplementedException();
+            var encontro = repositorioCliente.BuscarPorId(Cliente.Cedula);
+            if (encontro != 0)
+            {
+                return repositorioCliente.EditarCliente(Cliente);
+            }
+            return "Cliente no encontrado";
         }
 
         public List<Cliente> GetAll()
         {
-            throw new NotImplementedException();
+            return clientes;
         }
 
-        public Cliente GetById(Cliente Cliente, int p)
-        {
-            throw new NotImplementedException();
-        }
 
         public string Guardar(Cliente Cliente)
         {

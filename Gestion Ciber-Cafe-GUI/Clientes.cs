@@ -47,9 +47,9 @@ namespace Gestion_Ciber_Cafe_GUI
             }
             else
             {
-                if (p== -1)
+                if (p == -1)
                 {
-                    cliente.Cedula = int.Parse(txtcedula.Text);
+                    cliente.Cedula = txtcedula.Text;
                     cliente.Nombre = txtnombre.Text;
                     cliente.Telefono = txtTelefono.Text;
                     cliente.Direccion = txtDireccion.Text;
@@ -78,13 +78,7 @@ namespace Gestion_Ciber_Cafe_GUI
             }
 
         }
-        //void CargarTabla()
-        //{
-        //    foreach (var item in servicioCliente.GetAll())
-        //    {
-        //        dataGridView1.Rows.Add(item.Cedula, item.Nombre, item.Telefono, item.Direccion, item.Correo);
-        //    }
-        //}
+        
 
         private void Clientes_Load(object sender, EventArgs e)
         {
@@ -97,7 +91,7 @@ namespace Gestion_Ciber_Cafe_GUI
             p = e.RowIndex;
             if (p != -1)
             {
-         //       VerClientes(servicioCliente.GetAll()[p]);
+               VerClientes(servicioCliente.GetAll()[p]);
             }
             tabControl1.SelectedIndex = 0;
         }
@@ -111,17 +105,17 @@ namespace Gestion_Ciber_Cafe_GUI
         }
         void Refres()
         {
-    //        dataGridView1.DataSource = servicioCliente.GetAll();
+           dataGridView1.DataSource = servicioCliente.GetAll();
         }
         void Editar()
         {
-            cliente.Cedula = int.Parse(txtcedula.Text);
+            cliente.Cedula = txtcedula.Text;
             cliente.Nombre = txtnombre.Text;
             cliente.Telefono = txtTelefono.Text;
             cliente.Direccion = txtDireccion.Text;
             cliente.Correo = txtCorreo.Text;
-       //     var mensaje = servicioCliente.Edit(cliente, p);
-          //  MessageBox.Show(mensaje);
+            var mensaje = servicioCliente.Edit(cliente);
+            MessageBox.Show(mensaje);
             Limpiar();
             txtcedula.Focus();
             Refres();
@@ -333,17 +327,26 @@ namespace Gestion_Ciber_Cafe_GUI
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            Editar();
+            if (txtcedula.Text == "" || txtnombre.Text == "" || txtTelefono.Text == " " || txtDireccion.Text == " " || txtCorreo.Text == " ")
+            {
+                MessageBox.Show("No se puede editar el cliente, con los campos vacios");
+            }
+            else
+            {
+                Editar();
+            }
+           
         }
         void Eliminar()
         {
-            if (p != -1) 
+            cliente.Cedula = txtcedula.Text;
+            if (p != -1)
             {
                 var Respuesta = MessageBox.Show("Desea borrar el cliente seleccionado?", "Responde...", MessageBoxButtons.YesNo);
                 if (Respuesta == DialogResult.Yes)
                 {
-               //     var mensaje = servicioCliente.Delete(p);
-                  //  MessageBox.Show(mensaje);
+                      var mensaje = servicioCliente.Delete(cliente);
+                      MessageBox.Show(mensaje);
                     Refres();
                 }
                 Limpiar();
@@ -376,6 +379,7 @@ namespace Gestion_Ciber_Cafe_GUI
         private void btnListaClientes_Click(object sender, EventArgs e)
         {
             tabControl1.SelectedIndex = 1;
+            Refres();
         }
 
         private void btnRegistrar_Click(object sender, EventArgs e)

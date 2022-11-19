@@ -8,9 +8,9 @@ namespace Logica
     public interface Iservices<T>
     {
         string Guardar(T Cliente);
-        string Delete(int Indice);
-        string Edit(T Cliente, int p);
+        string Delete(T Cliente);
+        string Edit(T Cliente);
         List<T> GetAll();
-        T GetById(T Cliente, int p);
+       
     }
 }
