@@ -7,7 +7,7 @@ namespace Entidades
 {
     public class Producto
     {
-        public string Codigo { get; set; }
+        public int Codigo { get; set; }
 
         public string Nombre { get; set; }
 
@@ -17,9 +17,17 @@ namespace Entidades
 
         public int Stock { get; set; }
 
-        public override string ToString()
+        public Producto(int codigo, string nombre, string descripcion, double valorVenta, int stock)
         {
-            return string.Format(Codigo + ";" + Nombre + ";" + Descripcion + ";" + ValorVenta + ";" + Stock);
+            Codigo = codigo;
+            Nombre = nombre;
+            Descripcion = descripcion;
+            ValorVenta = valorVenta;
+            Stock = stock;
+        }
+
+        public Producto()
+        {
         }
     }
 }

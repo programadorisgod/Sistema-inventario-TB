@@ -29,7 +29,7 @@ namespace Gestion_Ciber_Cafe_GUI
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
         void RefreshLista()
         {
-            //grillaListaProductos.DataSource = servicioProducto.GetAll();
+            grillaListaProductos.DataSource = servicioProducto.GetAll();
         }
         void Limpiar()
         {
@@ -40,9 +40,9 @@ namespace Gestion_Ciber_Cafe_GUI
         }
         void Llenar(Entidades.Producto producto)
         {
-            textBoxCodigo.Text = producto.Codigo;
+            textBoxCodigo.Text = producto.Codigo.ToString();
             textBoxNombre.Text = producto.Nombre;
-            textBoxValorVenta.Text = producto.ValorVenta + "";
+            textBoxValorVenta.Text = producto.ValorVenta.ToString();
             textBoxDescripcion.Text = producto.Descripcion;
         }
         void Guardar()
@@ -55,15 +55,15 @@ namespace Gestion_Ciber_Cafe_GUI
             {
                 if (row == -1)
                 {
-                    producto.Codigo = textBoxCodigo.Text;
+                    producto.Codigo = int.Parse(textBoxCodigo.Text);
                     producto.Nombre = textBoxNombre.Text;
                     producto.Descripcion = textBoxDescripcion.Text;
                     producto.ValorVenta = double.Parse(textBoxValorVenta.Text);
                     var Respuesta = MessageBox.Show("Desea guardar el producto?", "Responde...", MessageBoxButtons.YesNo);
                     if (Respuesta == DialogResult.Yes)
                     {
-                        //var mensaje = servicioProducto.Guardar(producto);
-                        //MessageBox.Show(mensaje);
+                        var mensaje = servicioProducto.Guardar(producto);
+                        MessageBox.Show(mensaje);
                         Limpiar();
                         RefreshLista();
                     }
@@ -73,7 +73,7 @@ namespace Gestion_Ciber_Cafe_GUI
                     var Respuesta = MessageBox.Show("Desea modificar el producto?", "Responde...", MessageBoxButtons.YesNo);
                     if (Respuesta == DialogResult.Yes)
                     {
-                        producto.Codigo = textBoxCodigo.Text;
+                        producto.Codigo = int.Parse(textBoxCodigo.Text);
                         producto.Nombre = textBoxNombre.Text;
                         producto.Descripcion = textBoxDescripcion.Text;
                         producto.ValorVenta = double.Parse(textBoxValorVenta.Text);
